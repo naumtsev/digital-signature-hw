@@ -6,6 +6,12 @@ def extended_gcd(a, b):
         return g, x - (b // a) * y, y
 
 
+def gcd(a, b):
+    while a != 0:
+        a, b = b % a, a
+    return b
+
+
 def mod_inverse(a, m):
     g, x, y = extended_gcd(a, m)
     if g != 1:

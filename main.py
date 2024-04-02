@@ -1,9 +1,8 @@
 # RSA Algorithm
 
-import sympy
 import random
 from primes import n_bits_random_prime
-from pows import mod_inverse, fast_pow_by_mod
+from pows import mod_inverse, fast_pow_by_mod, gcd
 
 N_BITS = 20
 
@@ -32,7 +31,7 @@ class PublicKey:
 
 def random_coprime_number(n: int) -> int:  # gcd(result, n) = 1
     x = random.randint(2, n)
-    while sympy.gcd(x, n) != 1:
+    while gcd(x, n) != 1:
         x = random.randint(2, n)
     return x
 
